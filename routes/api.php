@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Middleware\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('storeContact', [ContactController::class, 'storeContact']);
-
 Route::get('getContact', [ContactController::class, 'getContact']);
+
+
+Route::post('login', [AuthenticationController::class, 'login']);
+Route::post('register', [AuthenticationController::class, 'register']);
+
+
+Route::group(['middleware' => ['jwt.verify']], function(){
+    Route::get('logout', [AuthenticationController::class, 'logout']);
+});
