@@ -6,6 +6,7 @@ use Closure;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -55,6 +56,7 @@ class AuthenticationController
             'success' => true,
             'code' => 1,
             'user_details' => $credentials['email'],
+            'id' => Auth::id(),
             'token' => $token
         ]);
     }
