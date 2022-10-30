@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ContactController;
-use App\Http\Middleware\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+use App\Http\Middleware\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('storeContact', [ContactController::class, 'storeContact']);
 Route::get('getContact', [ContactController::class, 'getContact']);
 Route::delete('deleteContact/{id}', [ContactController::class, 'deleteContact']);
+Route::get('getCategoryBrand', [ProductController::class, 'index']);
 
 
 Route::post('login', [AuthenticationController::class, 'login']);
