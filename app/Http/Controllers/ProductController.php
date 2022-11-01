@@ -9,6 +9,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return  $all = (new CategoryBrandService())->categoryBrandService();
+        return (new CategoryBrandService())->categoryBrandService();
     }
 }

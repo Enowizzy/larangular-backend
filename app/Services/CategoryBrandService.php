@@ -15,9 +15,10 @@ class CategoryBrandService
 {
     public function categoryBrandService()
     {
-        $json['categories'] = Category::get();
-        $json['sub_categories'] = SubCategory::get();
-        $json['brands'] = Brand::get();
-        return response()->json($json);
+        return response()->json([
+            'brand' => Brand::all(),
+            'category' => Category::all(),
+            'sub_category' => SubCategory::all(),
+        ]);
     }
 }
