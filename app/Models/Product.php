@@ -10,6 +10,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+    protected $guarded    = ['id'];
+    protected $fillable = [
+        'name',
+        'cost',
+        'price',
+        'images',
+        'brand_id',
+        'quantity',
+        'description',
+        'category_id',
+        'sub_category_id',
+        'is_available',
+    ];
 
     public function category()
     {
