@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
+        "prettus/l5-repository": "^2.8",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
