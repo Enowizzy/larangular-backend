@@ -185,9 +185,9 @@ return [
         /*
          * Package Service Providers...
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-
-         */
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        browner12\helpers\HelperServiceProvider::class,
+         */
         /*
          * Application Service Providers...
          */
