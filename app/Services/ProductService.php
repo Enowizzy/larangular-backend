@@ -17,9 +17,9 @@ class ProductService
     {
 
         $file = [];
-        if ($request->hasFile('image')) {
-            $file = $request->hasFile('image');
-            foreach ($request->file('image') as $file) {
+        if ($request->hasFile('images')) {
+            $file = $request->hasFile('images');
+            foreach ($request->file('images') as $file) {
                 $destination_path = 'public/products';
                 $fileName = $file->getClientOriginalExtension();
                 $filename = time() . '-' . md5(rand(1000, 10000)) . '.' . $fileName;

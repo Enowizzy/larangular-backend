@@ -32,7 +32,7 @@ class ProductStoreRequest extends FormRequest
             "quantity" => "required|min:1",
             "cost" => "required",
             "price" => "required",
-            // 'images.*' => 'mimes:jpg,jpeg,png|max:5000',
+            'images.*' => 'mimes:jpg,jpeg,png|max:5000',
             // 'images' => 'min:3',
         ];
     }
