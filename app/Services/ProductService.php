@@ -25,8 +25,6 @@ class ProductService
                 $filename = time() . '-' . md5(rand(1000, 10000)) . '.' . $fileName;
                 $path = $file->storeAs($destination_path,  $filename);
                 // $image[] = $filename;
-
-
             // }
         }
        
@@ -45,7 +43,7 @@ class ProductService
             return response()->json([
                 'success' => true,
                 'code' => 1,
-                'message' => 'product stored successful',
+                'message' => 'Product stored successful',
             ]);
         } else {
             return response()->json([
