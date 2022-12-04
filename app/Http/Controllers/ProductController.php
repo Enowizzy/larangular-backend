@@ -17,4 +17,8 @@ class ProductController extends Controller
     {
         return (new ProductService())->handle($request);
     }
+    public function view()
+    {
+        return (new ProductService())->getProducts();
+    }
 }

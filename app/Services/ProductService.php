@@ -53,4 +53,8 @@ class ProductService
             ], 500);
         }
     }
+    public function getProducts()
+    {
+        return Product::all();
+    }
 }

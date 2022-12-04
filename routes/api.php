@@ -26,6 +26,7 @@ Route::get('getContact', [ContactController::class, 'getContact']);
 Route::delete('deleteContact/{id}', [ContactController::class, 'deleteContact']);
 Route::get('getCategoryBrand', [ProductController::class, 'index']);
 Route::post('addProduct', [ProductController::class, 'store']);
+Route::get('getProducts', [ProductController::class, 'view']);
 
 
 Route::post('login', [AuthenticationController::class, 'login']);
