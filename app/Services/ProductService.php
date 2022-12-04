@@ -16,18 +16,18 @@ class ProductService
     public function handle(ProductStoreRequest $request)
     {
 
-        $file = [];
+        // $file = [];
         if ($request->hasFile('images')) {
-            $file = $request->hasFile('images');
-            foreach ($request->file('images') as $file) {
+            $file = $request->file('images');
+            // foreach ($request->file('images') as $file) {
                 $destination_path = 'public/products';
                 $fileName = $file->getClientOriginalExtension();
                 $filename = time() . '-' . md5(rand(1000, 10000)) . '.' . $fileName;
                 $path = $file->storeAs($destination_path,  $filename);
-                $image[] = $filename;
+                // $image[] = $filename;
 
 
-            }
+            // }
         }
        
         $input = $request->validated();
@@ -38,7 +38,7 @@ class ProductService
                 'category_id' => $request->category_id,
                 'sub_category_id' => $request->sub_category_id,
                 'is_available' => $request->input('is_available') == true ? '1' : '0',
-                // 'images' => implode(',', $image)
+                'images' => $filename
             ]
         ));
         if ($json) {
