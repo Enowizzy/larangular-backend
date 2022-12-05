@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Models\Cv;
+use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductStoreRequest;
 
@@ -56,5 +58,13 @@ class ProductService
     public function getProducts()
     {
         return Product::all();
+        // $products = Product::all();
+        // foreach ($products as $product) {
+        //     return response()->json([
+        //         'products' => Product::all(),
+        //         'categories' => Category::where('id', $product->category_id)->get('name'),
+        //         'brands' =>Brand::where('id', $product->brand_id)->get('name'),
+        //     ]);
+        // }
     }
 }
