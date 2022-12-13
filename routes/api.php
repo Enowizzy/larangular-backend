@@ -27,6 +27,7 @@ Route::delete('deleteContact/{id}', [ContactController::class, 'deleteContact'])
 Route::get('getCategoryBrand', [ProductController::class, 'index']);
 Route::post('addProduct', [ProductController::class, 'store']);
 Route::get('getProducts', [ProductController::class, 'view']);
+Route::delete('deleteProduct/{id}', [ProductController::class, 'delete']);
 
 
 Route::post('login', [AuthenticationController::class, 'login']);

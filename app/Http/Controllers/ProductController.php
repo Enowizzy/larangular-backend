@@ -21,4 +21,8 @@ class ProductController extends Controller
     {
         return (new ProductService())->getProducts();
     }
+    public function delete($id)
+    {
+        return (new ProductService())->deleteProduct($id);
+    }
 }

@@ -22,14 +22,14 @@ class ProductService
         if ($request->hasFile('images')) {
             $file = $request->file('images');
             // foreach ($request->file('images') as $file) {
-                $destination_path = 'public/products';
-                $fileName = $file->getClientOriginalExtension();
-                $filename = time() . '-' . md5(rand(1000, 10000)) . '.' . $fileName;
-                $path = $file->storeAs($destination_path,  $filename);
-                // $image[] = $filename;
+            $destination_path = 'public/products';
+            $fileName = $file->getClientOriginalExtension();
+            $filename = time() . '-' . md5(rand(1000, 10000)) . '.' . $fileName;
+            $path = $file->storeAs($destination_path,  $filename);
+            // $image[] = $filename;
             // }
         }
-       
+
         $input = $request->validated();
         $json = Product::create(array_merge(
             $input,
@@ -66,5 +66,23 @@ class ProductService
         //         'brands' =>Brand::where('id', $product->brand_id)->get('name'),
         //     ]);
         // }
+    }
+    public function deleteProduct($id)
+    {
+        $delete = Product::find($id);
+        if ($delete) {
+            $delete->delete();
+            return response()->json([
+                'success' => true,
+                'code' => 1,
+                'message' => 'Product deleted successful',
+            ]);
+        } else if (!$delete) {
+            return response()->json([
+                'success' => false,
+                'code' => 2,
+                'message' => 'error has occur please try again later',
+            ], 500);
+        }
     }
 }
