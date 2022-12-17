@@ -70,18 +70,17 @@ class ProductService
     public function deleteProduct($id)
     {
         $delete = Product::find($id);
-        if ($delete) {
-            $delete->delete();
+        if ($delete->delete()) {
             return response()->json([
                 'success' => true,
                 'code' => 1,
                 'message' => 'Product deleted successful',
             ]);
-        } else if (!$delete) {
+        } else if (is_null($delete)) {
             return response()->json([
                 'success' => false,
                 'code' => 2,
-                'message' => 'error has occur please try again later',
+                'message' => 'Error occurred please try again later',
             ], 500);
         }
     }
